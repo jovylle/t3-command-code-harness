@@ -84,6 +84,7 @@ for _ in $(seq 1 40); do
   sleep 0.5
 done
 
-echo "warning: no ready probe yet. Either T3 needs a restart, or the CLI path is wrong:" >&2
-echo "  $BIN acp" >&2
-exit 1
+echo "note: settings updated, but T3 hasn't reported a ready probe yet." >&2
+echo "      Restart T3 Code, then check: $CACHE" >&2
+echo "      If it still fails, check the path: $BIN acp" >&2
+exit 0
