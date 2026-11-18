@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-label="Command Code inside T3 Code — an ACP harness">
+  <title>Command Code inside T3 Code</title>
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#8b95f8"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0.2" cy="0.08" r="0.6">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.86" cy="0" r="0.55">
+      <stop offset="0" stop-color="#8b95f8" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#8b95f8" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="400" fill="#08090c"/>
+  <rect width="1280" height="400" fill="url(#grid)"/>
+  <rect width="1280" height="400" fill="url(#glowA)"/>
+  <rect width="1280" height="400" fill="url(#glowB)"/>
+
+  <g font-family="'SF Mono',ui-monospace,Menlo,Consolas,monospace">
+    <rect x="76" y="52" width="330" height="34" rx="17" fill="#11151d" stroke="#242c3c" stroke-width="1"/>
+    <circle cx="98" cy="69" r="4.5" fill="#5eead4"/>
+    <text x="114" y="74" font-size="13" fill="#98a2b3" letter-spacing="0.6">ACP HARNESS / MIT / v1.89.1</text>
+  </g>
+
+  <g font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif" font-weight="700" font-size="70" letter-spacing="-2.6">
+    <text x="74" y="178" fill="#e8ebf2">Command Code</text>
+    <text x="74" y="256" fill="url(#accent)">inside T3 Code.</text>
+  </g>
+
+  <text x="76" y="308" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+        font-size="19" fill="#b7c0cf">
+    Run the commandcode CLI as a first-class provider over ACP. Your existing login, no API key.
+  </text>
+
+  <path d="M76 344H1204" stroke="#1c2230" stroke-width="1"/>
+
+  <g font-family="'SF Mono',ui-monospace,Menlo,Consolas,monospace" font-size="13">
+    <text x="76" y="374" fill="#5eead4">t3cc.jovylle.com</text>
+    <text x="1204" y="374" fill="#6f7a8c" text-anchor="end">github.com/jovylle/t3-command-code-harness</text>
+  </g>
+</svg>

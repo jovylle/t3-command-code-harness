@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580" role="img" aria-label="Install terminal output showing the installer detecting the binary, backing up settings, adding the provider and reporting 98 models">
+  <title>install.sh output</title>
+  <defs>
+    <linearGradient id="winBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1017"/>
+      <stop offset="1" stop-color="#0a0c11"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0.5" y="0.5" width="899" height="579" rx="16" fill="url(#winBg)" stroke="#1e2432"/>
+
+  <path d="M0 44h900" stroke="#171c27"/>
+  <circle cx="26" cy="23" r="5.5" fill="#3a2430"/>
+  <circle cx="46" cy="23" r="5.5" fill="#3a3324"/>
+  <circle cx="66" cy="23" r="5.5" fill="#22352f"/>
+  <text x="450" y="28" text-anchor="middle" font-family="'SF Mono',ui-monospace,Menlo,monospace"
+        font-size="12" fill="#6f7a8c">./install.sh</text>
+
+  <g font-family="'SF Mono',ui-monospace,Menlo,Consolas,monospace" font-size="14" xml:space="preserve">
+    <text x="28" y="84" fill="#2dd4bf">$</text><text x="46" y="84" fill="#c8d2e2">git clone https://github.com/jovylle/t3-command-code-harness.git</text>
+    <text x="28" y="110" fill="#2dd4bf">$</text><text x="46" y="110" fill="#c8d2e2">cd t3-command-code-harness</text>
+    <text x="28" y="136" fill="#2dd4bf">$</text><text x="46" y="136" fill="#c8d2e2">./install.sh</text>
+
+    <text x="28" y="184" fill="#5eead4">==&gt;</text><text x="70" y="184" fill="#9aa4b5">commandcode: </text><text x="184" y="184" fill="#e8ebf2">/Users/you/.local/bin/commandcode</text>
+    <text x="28" y="210" fill="#5eead4">==&gt;</text><text x="70" y="210" fill="#9aa4b5">backup: </text><text x="134" y="210" fill="#8d97a8">settings.json.bak.2026-11-16T10-25-41-000Z</text>
+    <text x="28" y="236" fill="#5eead4">==&gt;</text><text x="70" y="236" fill="#9aa4b5">added </text><text x="130" y="236" fill="#9fb0f7">providerInstances.acpRegistry_command_code</text>
+    <text x="28" y="262" fill="#5eead4">==&gt;</text><text x="70" y="262" fill="#9aa4b5">waiting for T3 to probe the agent...</text>
+    <text x="28" y="288" fill="#5eead4">==&gt;</text><text x="70" y="288" fill="#9aa4b5">status: </text><text x="142" y="288" fill="#6f7a8c">starting</text>
+    <text x="28" y="314" fill="#5eead4">==&gt;</text><text x="70" y="314" fill="#9aa4b5">status: </text><text x="142" y="314" fill="#6f7a8c">probing</text>
+
+    <text x="28" y="356" fill="#5eead4">==&gt;</text><text x="70" y="356" fill="#e8ebf2">ready - </text><text x="150" y="356" fill="#5eead4" font-weight="bold">98 models</text>
+    <text x="28" y="382" fill="#5eead4">==&gt;</text><text x="70" y="382" fill="#e8ebf2">first: </text><text x="132" y="382" fill="#b7c0cf">deepseek/deepseek-v4.1-flash, ...</text>
+
+    <text x="28" y="428" fill="#e8ebf2">Done. In T3 Code open the model picker and choose Command Code.</text>
+  </g>
+
+  <rect x="28" y="462" width="844" height="1" fill="#171c27"/>
+
+  <g font-family="'SF Mono',ui-monospace,Menlo,monospace" font-size="12">
+    <text x="28" y="496" fill="#5eead4">#</text><text x="44" y="496" fill="#7f8899">idempotent</text>
+    <text x="28" y="520" fill="#5eead4">#</text><text x="44" y="520" fill="#7f8899">backs up settings before every write</text>
+    <text x="28" y="544" fill="#5eead4">#</text><text x="44" y="544" fill="#7f8899">one JSON key, nothing else</text>
+  </g>
+</svg>
