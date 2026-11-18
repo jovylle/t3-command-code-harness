@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T3 + Command Code — run the Command Code CLI as an ACP harness</title>
+<meta name="description" content="Wire the Command Code CLI into T3 Code as a first-class provider over ACP. No proxy, no API key — reuse the login you already have. MIT, one install script.">
+<link rel="canonical" href="https://t3cc.jovylle.com/">
+<meta name="theme-color" content="#08090c">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://t3cc.jovylle.com/">
+<meta property="og:title" content="T3 + Command Code — an ACP harness in one script">
+<meta property="og:description" content="Run the Command Code CLI as a first-class provider inside T3 Code. Uses your existing subscription login. MIT.">
+<meta property="og:image" content="https://t3cc.jovylle.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="T3 + Command Code — an ACP harness in one script">
+<meta name="twitter:description" content="Run the Command Code CLI as a first-class provider inside T3 Code. Uses your existing subscription login. MIT.">
+<meta name="twitter:image" content="https://t3cc.jovylle.com/og-image.png">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="T3 Command Code harness home">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="28" height="28" role="img">
+          <rect x="1" y="1" width="30" height="30" rx="8" fill="none" stroke="currentColor" stroke-opacity=".35"/>
+          <path d="M9 11h14M16 11v11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="23.5" cy="21" r="2.4" fill="currentColor" fill-opacity=".85"/>
+        </svg>
+      </span>
+      <span class="brand-text">t3 <span class="slash">/</span> command&#8209;code</span>
+    </a>
+
+    <nav class="nav" aria-label="Sections">
+      <a href="#what">What you get</a>
+      <a href="#install">Install</a>
+      <a href="#gotchas">Gotchas</a>
+    </nav>
+
+    <a class="btn btn-ghost header-cta" href="https://github.com/jovylle/t3-command-code-harness" rel="noopener">
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.4 7.4 0 0 1 2-.27c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span> ACP harness · MIT · verified on command&#8209;code v1.89.1</p>
+      <h1>Command Code inside <span class="grad">T3 Code</span>,<br>in one script.</h1>
+      <p class="lede">
+        The <code>commandcode</code> CLI already speaks the Agent Client Protocol. T3 Code already
+        speaks it too. This repo connects the two, so your Command Code subscription shows up as a
+        normal provider next to Claude, Codex and Cursor — no proxy, no wrapper, no API key.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#install">Install in 3 commands</a>
+        <a class="btn btn-ghost" href="https://github.com/jovylle/t3-command-code-harness" rel="noopener">Read the source</a>
+      </div>
+
+      <div class="terminal" data-copy-root>
+        <div class="terminal-bar">
+          <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="terminal-title">shell</span>
+          <button class="copy" type="button" data-copy="git clone https://github.com/jovylle/t3-command-code-harness.git
+cd t3-command-code-harness
+./install.sh">Copy</button>
+        </div>
+        <pre><code><span class="c">$</span> git clone https://github.com/jovylle/t3-command-code-harness.git
+<span class="c">$</span> cd t3-command-code-harness
+<span class="c">$</span> ./install.sh
+
+<span class="ok">==&gt;</span> commandcode: /Users/you/.local/bin/commandcode
+<span class="ok">==&gt;</span> backup: ~/.t3/userdata/settings.json.bak.2026-11-16T10-25-41-000Z
+<span class="ok">==&gt;</span> added providerInstances.acpRegistry_command_code
+<span class="ok">==&gt;</span> ready - 98 models
+<span class="ok">==&gt;</span> first: deepseek/deepseek-v4.1-flash, ...
+
+Done. In T3 Code open the model picker and choose Command Code.</code></pre>
+      </div>
+
+      <ul class="hero-facts" role="list">
+        <li><strong>0</strong> API keys</li>
+        <li><strong>98</strong> models at last probe</li>
+        <li><strong>1</strong> file touched</li>
+        <li><strong>MIT</strong> licensed</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="flow" aria-labelledby="flow-title">
+    <div class="wrap">
+      <h2 id="flow-title" class="sr-only">How the pieces connect</h2>
+      <div class="flow-track">
+        <div class="node">
+          <span class="node-k">app</span>
+          <span class="node-v">T3 Code</span>
+        </div>
+        <div class="link"><span>ACP</span><em>JSON-RPC over stdio</em></div>
+        <div class="node">
+          <span class="node-k">process</span>
+          <span class="node-v">commandcode acp</span>
+        </div>
+        <div class="link"><span>auth</span><em>~/.commandcode/auth.json</em></div>
+        <div class="node">
+          <span class="node-k">account</span>
+          <span class="node-v">your subscription</span>
+        </div>
+      </div>
+      <p class="flow-note">
+        Nothing runs in the background. No port is forwarded. T3 spawns the CLI, sends
+        <code>initialize</code> and <code>session/new</code>, and every turn after that is plain ACP traffic.
+      </p>
+    </div>
+  </section>
+
+  <section id="what" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">What you get</p>
+        <h2>A provider, not a workaround</h2>
+        <p class="section-sub">
+          Command Code is exposed the same way every other T3 provider is — which means threads,
+          model switching, permission modes and usage tracking all behave normally.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+          </div>
+          <h3>Provider in the model picker</h3>
+          <p><strong>Command Code</strong> appears as a provider. Pick a model per thread like any other harness.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+          <h3>Your own model catalog</h3>
+          <p>The list comes from Command Code, not this repo — roughly 98 models today, default <code>deepseek/deepseek-v4.1-flash</code>.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15.5 8.5a4 4 0 1 0 0 7M8 12h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4" fill="none" opacity=".45"/></svg>
+          </div>
+          <h3>Existing login, reused</h3>
+          <p>It reads <code>~/.commandcode/auth.json</code>. If you are signed in to the CLI, T3 just works — no re-auth, no token copy-paste.</p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 6h16M4 12h16M4 18h9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/><circle cx="18" cy="18" r="2.4" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
+          </div>
+          <h3>Permission modes map through</h3>
+          <p>T3's mode switches land on Command Code's own modes: Standard, Accept Edits, Plan, Don't Ask, Bypass.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="install" class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Install</p>
+        <h2>Three commands, one JSON key</h2>
+        <p class="section-sub">
+          The script is idempotent: run it twice and it tells you there is nothing to change.
+          Your settings file is backed up before every write.
+        </p>
+      </div>
+
+      <div class="install-grid">
+        <ol class="steps">
+          <li>
+            <h3>Check the prerequisites</h3>
+            <p>T3 Code (with the <code>acpRegistry</code> provider driver), the CLI, and a Node runtime — T3 ships one.</p>
+            <div class="code" data-copy-root>
+              <button class="copy" type="button" data-copy="commandcode --version
+commandcode login          # only if you are not signed in
+ls ~/.commandcode/auth.json">Copy</button>
+              <pre><code><span class="c">$</span> commandcode --version
+<span class="c">$</span> commandcode login          <span class="dim"># only if you are not signed in</span>
+<span class="c">$</span> ls ~/.commandcode/auth.json</code></pre>
+            </div>
+          </li>
+          <li>
+            <h3>Run the installer</h3>
+            <p>It finds the binary (or honors <code>COMMANDCODE_BIN</code>), edits
+              <code>~/.t3/userdata/settings.json</code>, and waits for T3 to hot-reload the provider.</p>
+            <div class="code" data-copy-root>
+              <button class="copy" type="button" data-copy="git clone https://github.com/jovylle/t3-command-code-harness.git
+cd t3-command-code-harness
+./install.sh">Copy</button>
+              <pre><code><span class="c">$</span> git clone https://github.com/jovylle/t3-command-code-harness.git
+<span class="c">$</span> cd t3-command-code-harness
+<span class="c">$</span> ./install.sh</code></pre>
+            </div>
+          </li>
+          <li>
+            <h3>Pick the provider</h3>
+            <p>Open T3, hit the model picker, choose <strong>Command Code</strong>. Restart T3 only if the provider does not appear.</p>
+          </li>
+        </ol>
+
+        <aside class="panel">
+          <h3>What the script changes</h3>
+          <ul class="ticks">
+            <li>Locates the <code>commandcode</code> binary</li>
+            <li>Backs up settings to a timestamped <code>.bak</code></li>
+            <li>Adds <code>providerInstances.acpRegistry_command_code</code> and nothing else</li>
+            <li>Waits for the probe, then prints the model count</li>
+          </ul>
+          <h3 class="mt">Verify by hand</h3>
+          <div class="code" data-copy-root>
+            <button class="copy" type="button" data-copy="head -20 ~/.t3/caches/acpRegistry_command_code.json">Copy</button>
+            <pre><code><span class="c">$</span> head -20 ~/.t3/caches/acpRegistry_command_code.json</code></pre>
+          </div>
+          <p class="fine">You want <code>"status": "ready"</code> and a populated <code>models</code> array.
+            <code>"status": "error"</code> means a wrong path or a logged-out CLI.</p>
+          <p class="fine">Prefer the UI? <strong>Settings → Providers → Local ACP</strong>, executable <code>commandcode</code>, argument <code>acp</code>.</p>
+        </aside>
+      </div>
+
+      <details class="disclosure">
+        <summary>Manual install — the exact JSON</summary>
+        <p>Add this under <code>providerInstances</code> in <code>~/.t3/userdata/settings.json</code>, with your own <code>command -v commandcode</code> path:</p>
+        <div class="code" data-copy-root>
+          <button class="copy" type="button" data-copy='{
+  "providerInstances": {
+    "acpRegistry_command_code": {
+      "driver": "acpRegistry",
+      "displayName": "Command Code",
+      "enabled": true,
+      "config": {
+        "source": "local",
+        "commandPath": "/Users/you/.local/bin/commandcode",
+        "commandArgs": ["acp"]
+      }
+    }
+  }
+}'>Copy</button>
+          <pre><code>{
+  <span class="key">"providerInstances"</span>: {
+    <span class="key">"acpRegistry_command_code"</span>: {
+      <span class="key">"driver"</span>: <span class="str">"acpRegistry"</span>,
+      <span class="key">"displayName"</span>: <span class="str">"Command Code"</span>,
+      <span class="key">"enabled"</span>: <span class="bool">true</span>,
+      <span class="key">"config"</span>: {
+        <span class="key">"source"</span>: <span class="str">"local"</span>,
+        <span class="key">"commandPath"</span>: <span class="str">"/Users/you/.local/bin/commandcode"</span>,
+        <span class="key">"commandArgs"</span>: [<span class="str">"acp"</span>]
+      }
+    }
+  }
+}</code></pre>
+        </div>
+      </details>
+
+      <details class="disclosure">
+        <summary>Uninstall</summary>
+        <p>Removes the provider entry (backing up settings first) and deletes the probe cache. Restart T3 if it is still listed.</p>
+        <div class="code" data-copy-root>
+          <button class="copy" type="button" data-copy="./uninstall.sh">Copy</button>
+          <pre><code><span class="c">$</span> ./uninstall.sh</code></pre>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="gotchas" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Gotchas</p>
+        <h2>Four things that will bite you</h2>
+        <p class="section-sub">Learned the hard way, written down so you do not repeat it.</p>
+      </div>
+
+      <div class="cards cards-2">
+        <article class="card warn">
+          <span class="num">01</span>
+          <h3>Don't-ask mode silently kills tools</h3>
+          <p>In a non-prompting permission mode, any tool outside the allowlist is denied <em>with no prompt</em>.
+            It looks like the agent is broken when it is really the harness refusing. Use Accept Edits or Plan,
+            or add explicit <code>permissions.allow</code> rules.</p>
+        </article>
+
+        <article class="card warn">
+          <span class="num">02</span>
+          <h3>The CLI self-updates mid-thread</h3>
+          <p>If the CLI updates while a session is live, that session can break. Finish or reopen the thread
+            instead of expecting the old one to keep going.</p>
+        </article>
+
+        <article class="card warn">
+          <span class="num">03</span>
+          <h3>The model list is not in this repo</h3>
+          <p>T3 asks the CLI. Different Command Code plans expose different models, so two people can see
+            different pickers on the same commit.</p>
+        </article>
+
+        <article class="card warn">
+          <span class="num">04</span>
+          <h3>Version drift is real</h3>
+          <p>Verified against v1.89.1. If <code>acp</code> disappears from <code>commandcode --help</code>,
+            the flag was renamed — the fix is one string in <code>settings.json</code>.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="wrap cta">
+      <h2>You already pay for Command Code.<br>Now use it in T3.</h2>
+      <p>One script, one settings key, your existing login.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://github.com/jovylle/t3-command-code-harness" rel="noopener">Star the repo</a>
+        <a class="btn btn-ghost" href="#install">Show me the steps</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>MIT licensed. Not affiliated with Anthropic or Command Code.</p>
+    <nav aria-label="Footer">
+      <a href="https://github.com/jovylle/t3-command-code-harness" rel="noopener">GitHub</a>
+      <a href="https://github.com/jovylle/t3-command-code-harness/issues" rel="noopener">Issues</a>
+      <a href="https://github.com/jovylle/t3-command-code-harness/blob/main/LICENSE" rel="noopener">License</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.copy');
+  Array.prototype.forEach.call(buttons, function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.getAttribute('data-copy') || '';
+      var done = function () {
+        var old = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(function () { btn.textContent = old; btn.classList.remove('copied'); }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () {});
+        return;
+      }
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    });
+  });
+
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('reduced-motion');
+  }
+})();
+</script>
+</body>
+</html>

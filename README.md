@@ -1,5 +1,8 @@
 # Command Code as a harness in T3 Code
 
+**Live: [t3cc.jovylle.com](https://t3cc.jovylle.com)** — the landing page lives in [`site/`](site)
+and deploys to Cloudflare Workers on every push to `main`.
+
 T3 Code can drive Command Code as a first-class provider, because the `commandcode` CLI already
 ships an **ACP agent mode** (`commandcode acp`). No proxy, no wrapper, no browser automation —
 T3 speaks the Agent Client Protocol to the CLI over stdio.
@@ -118,6 +121,22 @@ T3 if it's still listed.
 `commandcode acp` is an ACP agent on stdio. T3's `acpRegistry` driver spawns it, sends
 `initialize`, then `session/new`, and gets back the mode presets plus the model catalog. Every
 turn after that is plain ACP traffic. Nothing runs in the background, no port is forwarded.
+
+## Site
+
+The landing page at **https://t3cc.jovylle.com** is plain static HTML/CSS in `site/` — no build
+step. It is a Cloudflare Worker with static assets (`wrangler.jsonc`), bound to the custom domain
+`t3cc.jovylle.com` on the `jovylle.com` zone.
+
+```bash
+npm install          # once, for wrangler
+npm run dev          # http://localhost:8787
+npm run deploy       # manual deploy
+```
+
+Pushing to `main` touches `.github/workflows/deploy.yml`, which deploys with the
+`CLOUDFLARE_API_TOKEN` repository secret. That token can read and edit Workers on the account, so
+keep it scoped to this repo's secret store and rotate it if it leaks.
 
 ## License
 

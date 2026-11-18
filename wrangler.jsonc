@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "t3-command-code",
+  "account_id": "7f0e409fd621476eb621ef4c9a436374",
+  "compatibility_date": "2026-11-18",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  },
+  "routes": [{ "pattern": "t3cc.jovylle.com", "custom_domain": true }],
+  "observability": { "enabled": true }
+}
