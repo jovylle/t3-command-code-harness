@@ -12,8 +12,8 @@ reviews:
     drafts: false
     auto_incremental_review: false
     ignore_title_keywords:
-      - WIP
-      - DO NOT MERGE
+      - "[WIP]"
+      - "[DO NOT MERGE]"
 
   path_filters:
     - "!**/node_modules/**"
