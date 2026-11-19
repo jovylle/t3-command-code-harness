@@ -1,0 +1,25 @@
+language: en-US
+tone_instructions: "Be direct and concrete. Only flag things that are actually wrong or risky; skip praise and filler."
+
+reviews:
+  profile: chill
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: true
+
+  auto_review:
+    enabled: true
+    drafts: false
+    auto_incremental_review: false
+    ignore_title_keywords:
+      - "[WIP]"
+      - "[DO NOT MERGE]"
+
+  path_filters:
+    - "!**/node_modules/**"
+    - "!package-lock.json"
+    - "!**/*.lock"
+    - "!assets/**"
+
+chat:
+  auto_reply: false
